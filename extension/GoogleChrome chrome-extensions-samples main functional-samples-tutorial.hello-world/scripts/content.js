@@ -2,6 +2,13 @@
 // searchForLink(document.body);
 url = chrome.runtime.getURL("aggregate_data.json");
 let data;
+let currentUrl = window.location.host;
+
+console.log(currentUrl);
+
+checked_urls = new Set();
+
+
 fetch(url)
   .then((response) => response.json()) // file contains json
   .then((json) => {
@@ -14,8 +21,11 @@ function searchForLink(tag) {
   if (tag.nodeName == "A") {
     console.log(tag);
     link = tag.href;
+    host = tag.host;
+
     sourceData = getData(link);
-    if (sourceData != "miss") {
+    if (sourceData != "miss" && getData(currentUrl) == "miss" && !checked_urls.has(host)) {
+      checked_urls.add(host);
       const dataContainer = document.createElement("div");
       tag.appendChild(dataContainer);
       let img = new Image();
@@ -53,11 +63,5 @@ function getData(link) {
   }
   return "miss";
 }
-
-let currentUrl = window.location.href;
-currentUrl = currentUrl.replace("https://","");
-currentUrl = currentUrl.replace("/", "");
-
-console.log(currentUrl);
 
 // if (getData(currentUrl))
