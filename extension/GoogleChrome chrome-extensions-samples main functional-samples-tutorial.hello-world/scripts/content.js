@@ -9,7 +9,7 @@ fetch(url)
     console.log(data)
     searchForLink(document.body)}
     );
-  
+
 function searchForLink(tag) {
 
   if (tag.nodeName == "A") {
@@ -33,3 +33,11 @@ function getData(link) {
     }
   }
 }
+
+let currentUrl = window.location.href;
+currentUrl = currentUrl.replace("https://","");
+currentUrl = currentUrl.replace("/", "");
+
+console.log(currentUrl);
+
+// if (getData(currentUrl))
