@@ -56,7 +56,9 @@ fetch(url)
           box = document.createElement("div")
           box.style.backgroundColor = "yellow"
           dataContainer.appendChild(box)
-          box.appendChild(document.createTextNode(`This ${sourceData.Report.Type.toString().toLowerCase()} is considered ${sourceData.Report.Bias.toString().toLowerCase()}. It has a ${sourceData.Report.Accuracy.toString().toLowerCase()} accuracy and is considered to have ${sourceData.Report.Credibility.toString().toLowerCase()}`))
+          let info = document.createElement("div")
+          info.innerHTML = sourceData.Analysis
+          box.appendChild(info)
         })
       }
     } else {
