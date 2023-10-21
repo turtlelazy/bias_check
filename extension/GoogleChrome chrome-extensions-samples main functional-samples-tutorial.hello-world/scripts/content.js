@@ -124,7 +124,9 @@ function createCircle(link_element, grade) {
         "MIXED": "#ffff00",
         "MOSTLY FACTUAL": "#a0ff00",
         "HIGH": "#33ff00",
-        "VERY HIGH": "#00ff66"
+        "VERY HIGH": "#00ff66",
+        "VERY-HIGH": "#00ff66"
+
     }
 
     if (grade in color_pairs) {
