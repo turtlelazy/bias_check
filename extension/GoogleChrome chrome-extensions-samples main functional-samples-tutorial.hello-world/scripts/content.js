@@ -7,17 +7,20 @@ fetch(url)
   .then((json) => {
     data = json;
     console.log(data);
-    searchForLink(document.body);
+    Array.from(document.body.children).forEach(child => {
+        searchForLink(child, document.body);
+    })
+    
   });
 
-function searchForLink(tag) {
+function searchForLink(tag, parent) {
   if (tag.nodeName == "A") {
     console.log(tag);
     link = tag.href;
     sourceData = getData(link);
     if (sourceData != "miss") {
       const dataContainer = document.createElement("div");
-      tag.appendChild(dataContainer);
+      parent.appendChild(dataContainer);
       let img = new Image();
       if (sourceData.Report.Bias == "LEAST BIASED") {
         img.src = chrome.runtime.getURL("0.png");
@@ -39,7 +42,7 @@ function searchForLink(tag) {
       dataContainer.appendChild(img);
     }
   } else {
-    Array.from(tag.children).forEach((child) => searchForLink(child));
+    Array.from(tag.children).forEach((child) => searchForLink(child, tag));
   }
 }
 
