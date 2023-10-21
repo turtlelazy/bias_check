@@ -13,7 +13,7 @@
   "permissions": ["activeTab", "scripting"],
   "web_accessible_resources": [
     {
-      "resources": ["aggregate_data.json"],
+      "resources": ["aggregate_data.json", "1.png", "2.png", "3.png", "0.png", "-1.png", "-2.png", "-3.png"],
       "matches": ["<all_urls>"],
       "extension_ids": []
     }
