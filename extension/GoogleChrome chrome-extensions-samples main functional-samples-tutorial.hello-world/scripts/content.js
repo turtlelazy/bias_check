@@ -75,4 +75,21 @@ function getData(link) {
   return "miss";
 }
 
+function createCircle(link_element,grade) {
+  // Create a new div element
+  var circle = document.createElement("div");
+
+  // Set the width and height to make it a circle
+  circle.style.width = "100px";
+  circle.style.height = "100px";
+
+  // Set the background color or other styles as needed
+  circle.style.backgroundColor = "red";
+  circle.style.borderRadius = "50%";
+
+  // Append the circle to a container div
+  link_element.appendChild(circle);
+}
+
+
 // if (getData(currentUrl))
