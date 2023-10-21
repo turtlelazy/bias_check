@@ -108,7 +108,9 @@ def accumulate_data(JSON_fileN, list_fileN):
     for website in list_data:
         site = website[0]
         mbfc_site = website[1]
-        if (site not in json_data) and (site in domains_set):
+        site_alt = site.replace("www.","")
+        site_alt_2 = "www." + site
+        if (site not in json_data) and ((site in domains_set) or (site_alt in domains_set) or (site_alt_2 in domains_set)):
             if debug:
                 print(site)
             try:
