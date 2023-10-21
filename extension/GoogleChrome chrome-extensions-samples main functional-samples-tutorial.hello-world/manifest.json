@@ -10,18 +10,18 @@
   "background": {
     "service_worker": "background.js"
   },
-  "permissions": [
-    "activeTab",
-    "scripting"
+  "permissions": ["activeTab", "scripting"],
+  "web_accessible_resources": [
+    {
+      "resources": ["aggregate_data.json"],
+      "matches": ["<all_urls>"],
+      "extension_ids": []
+    }
   ],
-    "content_scripts": [
-      {
-        "js": [
-          "scripts/content.js"
-        ],
-        "matches": [
-          "https://www.google.com/"
-        ]
-      }
-    ]
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": ["https://www.google.com/*"]
+    }
+  ]
 }
